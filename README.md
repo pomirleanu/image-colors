@@ -1,16 +1,10 @@
-# :package_name
+# pomirleanu/image-colors
 
-[![Latest Version on Packagist][ico-version]][https://packagist.org/packages/pomirleanu/image-colors]
+[![Latest Version on Packagist][1.*]][pomirleanu/image-colors]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:vendor``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+Simple way to get the colors from a given image, will give tou the percentage and the colors hex.
 
 ## Install
 

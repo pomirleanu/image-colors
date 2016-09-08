@@ -1,7 +1,7 @@
 {
     "name": "pomirleanu/image-colors",
     "type": "library",
-    "description": "Simple whay to get the colors from a given image, will give tou the procentage and the colors hex.",
+    "description": "Simple way to get the colors from a given image, will give tou the percentage and the colors hex.",
     "keywords": [
         "pomirleanu",
         "image-colors"
