@@ -46,12 +46,15 @@ class ImageColors
             $dataImage = getimagesize($image);
             $image_scale = $this->scaleImage($dataImage[0], $dataImage[1]);
             $image_resized = imagecreatetruecolor($image_scale['width'], $image_scale['height']);
-            if ($dataImage[2] == 1)
+            if ($dataImage[2] == 1) {
                 $image_orig = imagecreatefromgif($image);
-            if ($dataImage[2] == 2)
+            }
+            if ($dataImage[2] == 2) {
                 $image_orig = imagecreatefromjpeg($image);
-            if ($dataImage[2] == 3)
+            }
+            if ($dataImage[2] == 3) {
                 $image_orig = imagecreatefrompng($image);
+            }
             // WE NEED NEAREST NEIGHBOR RESIZING, BECAUSE IT DOESN'T ALTER THE COLORS
             imagecopyresampled($image_resized, $image_orig, 0, 0, 0, 0, $image_scale['width'], $image_scale['height'], $dataImage[0], $dataImage[1]);
             return $this->getTheHexArray($image_resized);
@@ -80,8 +83,9 @@ class ImageColors
     private function scaleImage($width, $height)
     {
         $scale = 1;
-        if ($width > 0)
+        if ($width > 0) {
             $scale = min($this->preview_width / $width, $this->preview_height / $height);
+        }
         if ($scale < 1) {
             return ['width' => floor($scale * $width), 'height' => floor($scale * $width)];
         } else {

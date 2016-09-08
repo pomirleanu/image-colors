@@ -1,6 +1,6 @@
 # :package_name
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Latest Version on Packagist][ico-version]][https://packagist.org/packages/pomirleanu/image-colors]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
@@ -17,24 +17,44 @@ PSRs you support to avoid any confusion with users and contributors.
 Via Composer
 
 ``` bash
-$ composer require :vendor/:package_name
+$ composer require pomirleanu/image-colors
 ```
 
-## Usage
+## Next, you should add the ImageColorsServiceProvider to the providers array of your config/app.php configuration file:
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+Pomirleanu\ImageColors\ImageColorsServiceProvider::class,
 ```
+## Usage | This is just a simple example
+``` php
+namespace ****;
+use Illuminate\Http\Request;
+use Pomirleanu\ImageColors;
 
-## Change log
+class ImageClass
+{
+    /**
+     * @var ImageColors
+     */
+    private $imageColors;
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
+    /**
+     * ImagesController constructor.
+     * @param ImageColors $imageColors
+     */
+    public function __construct(ImageColors $imageColors)
+    {
+        $this->imageColors = $imageColors;
+    }
+    
+    public function getColors(Request $request){
+        if ($request->hasFile('image')) {
+                $colors = $this->imageColors->get($request->image);
+                
+                //Do what you want with the colors
+        }     
+    }
+}
 ```
 
 ## Contributing
@@ -43,12 +63,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+If you discover any security related issues, please email pomirleanu.florentin@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [:author_name][link-author]
-- [All Contributors][link-contributors]
+- [Pomirleanu Florentin Cristinel][https://github.com/pomirleanu]
 
 ## License
 

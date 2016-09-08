@@ -25,14 +25,13 @@ class ImageColorsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('image.colors', function ()
-        {
+        $this->app->bind('image.colors', function () {
             $config = config('image-colors');
 
             return new ImageColors($config);
         });
 
-        $this->app->alias('ImageColors','Pomirleanu\ImageColors\ImageColors');
+        $this->app->alias('ImageColors', 'Pomirleanu\ImageColors\ImageColors');
         $this->mergeConfigFrom(
             __DIR__ . '/../config/image-colors.php', 'image-colors'
         );
