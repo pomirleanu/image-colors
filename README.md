@@ -1,6 +1,4 @@
 # pomirleanu/image-colors
-
-[![Latest Version on Packagist][1.*]][pomirleanu/image-colors]
 [![Software License][ico-license]](LICENSE.md)
 
 

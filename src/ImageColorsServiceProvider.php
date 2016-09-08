@@ -6,17 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class ImageColorsServiceProvider extends ServiceProvider
 {
-    /**
-     * Perform post-registration booting of services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__ . '/../config/image-colors.php' => config_path('image-colors.php'),
-        ]);
-    }
 
     /**
      * Register any package services.
@@ -25,13 +14,12 @@ class ImageColorsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('image.colors', function () {
-            $config = config('image-colors');
-
-            return new ImageColors($config);
+        $this->publishes([
+            __DIR__ . '/../config/image-colors.php' => config_path('image-colors.php'),
+        ]);
+        $this->app->singleton(ImageColors::class, function ($app) {
+            return new ImageColors($app);
         });
-
-        $this->app->alias('ImageColors', 'Pomirleanu\ImageColors\ImageColors');
         $this->mergeConfigFrom(
             __DIR__ . '/../config/image-colors.php', 'image-colors'
         );
